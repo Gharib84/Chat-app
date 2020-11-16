@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chating-7ab75": {
+      "hosting": {
+        "chat-app": [
+          "chating-7ab75"
+        ]
+      }
+    }
+  }
+}
