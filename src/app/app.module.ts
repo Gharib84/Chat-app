@@ -11,6 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AuthenticationModule,
     
 
   ],
