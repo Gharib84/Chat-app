@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
+import {FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-singup',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+
+   }
 
   ngOnInit(): void {
   }
-
+  //login
+  getLogin(): any {
+    return this.router.navigate(['/login']);
+  }
 }
