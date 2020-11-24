@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-import {FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { NgForm,FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { User } from 'src/app/models/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-singup',
@@ -8,9 +11,9 @@ import {FormBuilder, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./singup.component.scss']
 })
 export class SingupComponent implements OnInit {
-
-  constructor(private router: Router) {
-
+  user: User = new User();
+  constructor(private router: Router,private auth: AuthenticationService, private userSR: UserService) {
+          
    }
 
   ngOnInit(): void {
@@ -19,4 +22,10 @@ export class SingupComponent implements OnInit {
   getLogin(): any {
     return this.router.navigate(['/login']);
   }
+
+  //form 
+  save(form: NgForm){
+    
+  }
+ 
 }
