@@ -12,11 +12,21 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SingupComponent implements OnInit {
   user: User = new User();
-  constructor(private router: Router,private auth: AuthenticationService, private userSR: UserService) {
+  fg: FormGroup;
+
+  constructor(private router: Router,private auth: AuthenticationService, 
+              private userSR: UserService,
+              private fb: FormBuilder) {
           
    }
 
   ngOnInit(): void {
+    this.fg = this.fb.group({
+      "name": this.fb.control("", [Validators.required]),
+      "email": this.fb.control("", [Validators.required]),
+      "password": this.fb.control("", [Validators.required]),
+      "mobile": this.fb.control("", [Validators.required])
+    })
   }
   //login
   getLogin(): any {
@@ -24,8 +34,9 @@ export class SingupComponent implements OnInit {
   }
 
   //form 
-  save(form: NgForm){
-    
+  save(): any{
+    this.user = Object.assign(this.user, this.fg.value);
+    console.log(this.user);
   }
  
 }
