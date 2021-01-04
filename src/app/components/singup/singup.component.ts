@@ -37,6 +37,17 @@ export class SingupComponent implements OnInit {
   save(): any{
     this.user = Object.assign(this.user, this.fg.value);
     console.log(this.user);
+    console.log(this.fg.value.email)
+    this.auth.signUp(this.user.email, this.user.password).then((userInfo)=>{
+      const usr = new User(this.user.name, userInfo.email, this.user.mobile,userInfo.password, this.user.uid,0,"");
+      this.writeNewUser(usr)
+    }).catch((err)=>{
+      console.log("something is wrong")
+    })
+    
+  }
+  private writeNewUser(user: User){
+    this.userSR.addUser(user);
   }
  
 }
